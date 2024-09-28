@@ -1,0 +1,15 @@
+{
+  "name": "@repo/node",
+  "scripts": {
+    "start": "node -r esbuild-register ./src/index.ts"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@repo/typescript-config": "*",
+    "dotenv": "^16.4.5",
+    "esbuild": "^0.23.1",
+    "esbuild-register": "^3.6.0",
+    "ts-node": "^10.9.2",
+    "typescript": "latest"
+  }
+}
