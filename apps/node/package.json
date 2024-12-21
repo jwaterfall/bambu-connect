@@ -1,11 +1,19 @@
 {
-  "name": "@repo/node",
+  "name": "node",
   "scripts": {
-    "start": "node -r esbuild-register ./src/index.ts"
+    "start": "node -r esbuild-register ./src/index.ts",
+    "dev": "nodemon npm start"
   },
-  "dependencies": {},
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "mqtt": "^5.10.1",
+    "socket.io": "^4.8.0",
+    "winston": "^3.14.2"
+  },
   "devDependencies": {
+    "@repo/interface": "*",
     "@repo/typescript-config": "*",
+    "@types/lodash": "^4.17.9",
     "dotenv": "^16.4.5",
     "esbuild": "^0.23.1",
     "esbuild-register": "^3.6.0",

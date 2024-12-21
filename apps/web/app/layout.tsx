@@ -1,14 +1,11 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Poppins } from "next/font/google";
+import { ConnectorProvider } from "./connector";
+import { Sidebar } from "./sidebar";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
+const poppins = Poppins({
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -22,10 +19,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
-      </body>
-    </html>
+    <ConnectorProvider>
+      <html lang="en">
+        <body
+          className={`${poppins.className} h-screen bg-background text-foreground flex`}
+        >
+          <Sidebar />
+          <main className="p-4 flex-1">{children}</main>
+        </body>
+      </html>
+    </ConnectorProvider>
   );
 }
